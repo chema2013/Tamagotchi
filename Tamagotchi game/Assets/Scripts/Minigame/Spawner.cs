@@ -40,14 +40,35 @@ public class Spawner : MonoBehaviour
         //defined the vector3 position using the player's position as reference
                Vector3 position = new Vector3(positionX, 1.7829f, 0f);
 
-            Instantiate (select, position, Quaternion.identity); 
+               GameObject obs;
+
+           obs = Instantiate (select, position, Quaternion.identity); 
+
+           obs.transform.SetParent (transform);
     }
     else
     {
         //defined the vector3 position using the player's position as reference
                Vector3 position = new Vector3(positionX, 1.54f, 0f);
 
-            Instantiate (select, position, Quaternion.identity); 
+            GameObject obs;
+
+           obs = Instantiate (select, position, Quaternion.identity);
+
+           obs.transform.SetParent (transform);
+    }
+
+    bool stop = Character.stopSpawn;
+
+    if(stop == true)
+    {
+        CancelInvoke("spawn");
+
+        foreach (Transform child in transform)
+         {
+             Destroy(child.gameObject);
+         }
+
     }
 
                
