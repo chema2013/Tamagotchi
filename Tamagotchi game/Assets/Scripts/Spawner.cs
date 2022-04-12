@@ -28,17 +28,29 @@ public class Spawner : MonoBehaviour
 
     public void spawn()
 {
-
+    GameObject select = prefab[Random.Range(0, 2)];
 
     float posx = Random.Range(5, 8);
 
     //sets variables that will be used in the new vector3
                float positionX = posx;
 
-               //defined the vector3 position using the player's position as reference
+               if(select == prefab[0])
+    {
+        //defined the vector3 position using the player's position as reference
                Vector3 position = new Vector3(positionX, 1.7829f, 0f);
 
-            Instantiate (prefab[Random.Range(0, 2)], position, Quaternion.identity); 
+            Instantiate (select, position, Quaternion.identity); 
+    }
+    else
+    {
+        //defined the vector3 position using the player's position as reference
+               Vector3 position = new Vector3(positionX, 1.54f, 0f);
+
+            Instantiate (select, position, Quaternion.identity); 
+    }
+
+               
 }
 
 }
