@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
 {
     public GameObject game;
 
+    public GameObject cha;
+
     public static bool stopSpawn;
 
     void OnEnable()
@@ -33,6 +35,8 @@ public class Character : MonoBehaviour
       if (col.gameObject.tag == "obstacle"){
 
           stopSpawn = true;
+
+          cha.SetActive(true);
 
           game.SetActive(false);
    }
