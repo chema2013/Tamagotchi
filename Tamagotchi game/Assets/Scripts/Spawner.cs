@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
                float positionX = posx;
 
                //defined the vector3 position using the player's position as reference
-               Vector3 position = new Vector3(positionX, 0f, 0f);
+               Vector3 position = new Vector3(positionX, 1.7829f, 0f);
 
             Instantiate (prefab[Random.Range(0, 2)], position, Quaternion.identity); 
 }
