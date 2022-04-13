@@ -12,6 +12,10 @@ public class Character : MonoBehaviour
 
     public GameObject Player;
 
+    public bool isJumping;
+
+    float jump = 6f;
+
     void OnEnable()
     {
         stopSpawn = false;
@@ -26,7 +30,12 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown("space") && isJumping == false)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
+            //checks if the player is currently jumping
+            isJumping = true;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col){
@@ -43,6 +52,11 @@ public class Character : MonoBehaviour
           game.SetActive(false);
 
           Player.GetComponent<Player>().health -= 30.00f;
+        }
+
+        if (col.gameObject.tag == "floor"){
+
+          isJumping = false;
         }
  }
 
