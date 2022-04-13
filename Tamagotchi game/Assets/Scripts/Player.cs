@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
         if (Asleep.activeSelf)
         {
-            health += 0.8f * Time.deltaTime;
+            health += 1.20f * Time.deltaTime;
             if (health > 100.00f)
             {
                 health = 100.00f;
@@ -51,6 +51,19 @@ public class Player : MonoBehaviour
             {
                 happiness = 100.00f;
             }
+        }
+
+        if(happiness < 0.00f)
+        {
+            happiness = 0.00f;
+        }
+        if (starvation < 0.00f)
+        {
+            starvation = 0.00f;
+        }
+        if (health < 0.00f)
+        {
+            health = 0.00f;
         }
 
         HappinessBar.fillAmount = happiness/100.00f;
