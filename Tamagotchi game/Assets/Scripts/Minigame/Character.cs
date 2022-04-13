@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
 
     public static bool stopSpawn;
 
+    public GameObject Player;
+
     void OnEnable()
     {
         stopSpawn = false;
@@ -39,7 +41,9 @@ public class Character : MonoBehaviour
           cha.SetActive(true);
 
           game.SetActive(false);
-   }
+
+          Player.GetComponent<Player>().health -= 30.00f;
+        }
  }
 
 }
