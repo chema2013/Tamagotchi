@@ -32,22 +32,25 @@ public class Buttons : MonoBehaviour
 
     public void Play()
     {
-        minigame.SetActive(true);
+        if (idle.activeSelf)
+        {
+            minigame.SetActive(true);
 
-        idle.SetActive(false);
+            idle.SetActive(false);
 
-        sleep.SetActive(false);
+            sleep.SetActive(false);
 
-        Asleep.SetActive(false);
+            Asleep.SetActive(false);
 
-        Eating.SetActive(false);
+            Eating.SetActive(false);
 
-        Jump.SetActive(false);
+            Jump.SetActive(false);
+        }
     }
 
     public void Sleep()
     {
-        if (!Asleep.activeSelf && !sleep.activeSelf)
+        if (idle.activeSelf)
         {
 
             minigame.SetActive(false);
@@ -64,21 +67,12 @@ public class Buttons : MonoBehaviour
 
             StartCoroutine(sleepCoroutine());
         }
-
-        else
-        {
-            Asleep.SetActive(false);
-
-            sleep.SetActive(false);
-
-            idle.SetActive(true);
-        }
     }
 
     public void Feed()
     {
 
-        if (!Eating.activeSelf)
+        if (!Eating.activeSelf && idle.activeSelf)
         {
 
             minigame.SetActive(false);
@@ -96,6 +90,23 @@ public class Buttons : MonoBehaviour
             StartCoroutine(feedCoroutine());
 
         }
+    }
+
+    public void Back()
+    {
+
+        minigame.SetActive(false);
+
+        idle.SetActive(true);
+
+        sleep.SetActive(false);
+
+        Asleep.SetActive(false);
+
+        Eating.SetActive(false);
+
+        Jump.SetActive(false);
+
     }
 
     IEnumerator sleepCoroutine()
