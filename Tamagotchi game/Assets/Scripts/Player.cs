@@ -31,9 +31,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        happiness -= 0.10f * Time.deltaTime;
+        happiness -= 0.20f * Time.deltaTime;
         starvation -= 0.40f * Time.deltaTime;
-        health -= 0.25f * Time.deltaTime;
+        health -= 0.10f * Time.deltaTime;
 
         if (Asleep.activeSelf)
         {
