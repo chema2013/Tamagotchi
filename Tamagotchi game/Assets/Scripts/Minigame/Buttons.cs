@@ -27,7 +27,10 @@ public class Buttons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+        Application.Quit();
+        Debug.Log("quit");
+    }
     }
 
     public void Play()
