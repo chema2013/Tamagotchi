@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class Buttons : MonoBehaviour
 
     public GameObject Player;
 
+    void OnEnable()
+    {
+        Debug.Log("start");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +37,11 @@ public class Buttons : MonoBehaviour
         Application.Quit();
         Debug.Log("quit");
     }
+
+    if(Input.GetKeyDown(KeyCode.R)){
+             Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+         }
+
     }
 
     public void Play()
